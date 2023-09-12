@@ -9,7 +9,7 @@ const item_controller = require("../controllers/itemController");
 
 router.get("/", category_controller.index);
 
-router.get("/category/create", category_controller.category_create_get);
+/*router.get("/category/create", category_controller.category_create_get);
 
 router.post("/category/create", category_controller.category_create_post);
 
@@ -41,6 +41,6 @@ router.post("/item/:id/update", item_controller.item_update_post);
 
 router.get("/item/:id", item_controller.item_detail);
 
-router.get("/items", item_controller.item_list);
+router.get("/items", item_controller.item_list);*/
 
 module.exports = router;
