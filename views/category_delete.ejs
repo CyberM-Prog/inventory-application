@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+            integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+          <div class='row'>
+            <div class='col-sm-2'>
+                <ul class='sidebar-nav'>
+                    <li ><a href='/'>Home</a></li>
+                    <li ><a href='/categories'>All categories</a></li>
+                    <li ><a href='/items'>All items</a></li>
+                    <hr>
+                    <li ><a href='/category/create'> Create new category</a></li>
+                    <li ><a href='/item/create'>Create new item</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-10">
+                <h1>Delete Category: <%=category.name%></h1>
+
+                <%if (items.length) { %>
+                    <p><strong>Delete the following items before attempting to delete this category.</strong></p>
+                    <div style='margin-left:20px;margin-top:20px'>
+                        <h4>Items</h4>
+                        <dl></dl>
+                        <% for(item of items) { %>
+                            <hr>
+                                <h5><a href=<%=item.url%>><%= item.name %></a></h5>
+                        <% } %>
+                    </div>
+                <%} else { %>
+                    <p>Do you really want to delete this category?</p>
+
+                    <form method='POST' action=''>
+                        <div class="form-group">
+                            <input type="hidden" id="categoryid" class="form-control" name="categoryid" required="true" value=<%=category._id%>>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Delete</button>
+                    </form>
+                <%}%>
+            </div>
+    </body>
+</html>
